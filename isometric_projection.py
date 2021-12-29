@@ -55,40 +55,40 @@ class IsometricProjectionTools(inkex.Effect):
         # matrices is omitted; it is always [0, 0, 1].
         self.transformations = {
             # From 2D to isometric top down view:
-            #   * scale vertically by cos(orthoangle)
-            #   * shear horizontally by -orthoangle
-            #   * rotate clock-wise orthoangle
+            #   * scale vertically by cos(∠)
+            #   * shear horizontally by -∠
+            #   * rotate clock-wise ∠
             'to_top':       [[self.cos,         -self.cos,        0],
                              [self.sin,         self.sin,         0]],
 
             # From 2D to isometric left-hand side view:
-            #   * scale horizontally by cos(orthoangle)
-            #   * shear vertically by -orthoangle
+            #   * scale horizontally by cos(∠)
+            #   * shear vertically by -∠
             'to_left':      [[self.cos,         0,                0],
                              [self.sin,         1,                0]],
 
             # From 2D to isometric right-hand side view:
-            #   * scale horizontally by cos(orthoangle)
-            #   * shear vertically by orthoangle
+            #   * scale horizontally by cos(∠)
+            #   * shear vertically by ∠
             'to_right':     [[self.cos ,        0,                0],
                              [-self.sin,        1,                0]],
 
             # From isometric top down view to 2D:
-            #   * rotate counter-clock-wise orthoangle
-            #   * shear horizontally by orthoangle
-            #   * scale vertically by 1 / cos(orthoangle)
+            #   * rotate counter-clock-wise ∠
+            #   * shear horizontally by ∠
+            #   * scale vertically by 1 / cos(∠)
             'from_top':     [[self.tan ,        1,                0],
                              [-self.tan,        1,                0]],
 
             # From isometric left-hand side view to 2D:
-            #   * shear vertically by orthoangle
-            #   * scale horizontally by 1 / cos(orthoangle)
+            #   * shear vertically by ∠
+            #   * scale horizontally by 1 / cos(∠)
             'from_left':    [[1 / self.cos,     0,                0],
                              [-self.tan,        1,                0]],
 
             # From isometric right-hand side view to 2D:
-            #   * shear vertically by -orthoangle
-            #   * scale horizontally by 1 / cos(orthoangle)
+            #   * shear vertically by -∠
+            #   * scale horizontally by 1 / cos(∠)
             'from_right':   [[1 / self.cos,     0,                0],
                              [self.tan,         1,                0]]
         }
