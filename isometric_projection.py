@@ -31,14 +31,16 @@ class IsometricProjectionTools(inkex.Effect):
             '-c', '--conversion',
             dest='conversion', default='top',
             help='Conversion to perform: (top|left|right)')
+        # Note: adding `type=bool` for the reverse option seems to break it when used
+        # from within Inkscape. Not sure why.
         self.arg_parser.add_argument(
-            '-r', '--reverse', type=bool,
+            '-r', '--reverse',
             dest='reverse', default="false",
             help='Reverse the transformation from isometric projection '
             'to flat 2D')
         self.arg_parser.add_argument(
             '-i', '--orthoangle', type=float,
-            dest='orthoangle', default="false",
+            dest='orthoangle', default="30",
             help='Isometric angle in degrees')
 
 
